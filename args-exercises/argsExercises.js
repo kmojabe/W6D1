@@ -56,7 +56,7 @@ Function.prototype.curry = function(numArgs) {
   function _curry(arg){
     retArr.push(arg);
     if (retArr.length === numArgs) {
-      // debugger
+      debugger
       return that.apply(null,retArr);
     } else {
       return _curry;
@@ -67,4 +67,8 @@ Function.prototype.curry = function(numArgs) {
 
 };
 
+let boundFunc = Cat.prototype.says.myBind(markov);
+let curriedSays = boundFunc.curry(2);
+curriedSays("meow");
+curriedSays("tree");
 // markov.says.curry(3)(breakfast)("meow")("tree");
